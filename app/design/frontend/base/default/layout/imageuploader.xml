@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <imageuploader_index_index>
+        <reference name="content">
+            <block type="imageuploader/imageuploader" name="imageuploader" template="imageuploader/imageuploader.phtml" />
+        </reference>
+    </imageuploader_index_index>
+</layout> 

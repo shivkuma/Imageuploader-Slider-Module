@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <imageuploader_adminhtml_imageuploader_index>
+        <reference name="content">
+            <block type="imageuploader/adminhtml_imageuploader" name="imageuploader" />
+        </reference>
+    </imageuploader_adminhtml_imageuploader_index>
+</layout>

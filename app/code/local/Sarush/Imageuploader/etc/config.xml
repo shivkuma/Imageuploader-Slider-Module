@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Sarush
+ * @package    Sarush_Imageuploader
+ * @author     Shiv Kumar
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Sarush_Imageuploader>
+            <version>0.1.0</version>
+        </Sarush_Imageuploader>
+    </modules>
+    <frontend>
+        <routers>
+            <imageuploader>
+                <use>standard</use>
+                <args>
+                    <module>Sarush_Imageuploader</module>
+                    <frontName>imageuploader</frontName>
+                </args>
+            </imageuploader>
+        </routers>
+        <layout>
+            <updates>
+                <imageuploader>
+                    <file>imageuploader.xml</file>
+                </imageuploader>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<imageuploader>
+				<use>admin</use>
+				<args>
+					<module>Sarush_Imageuploader</module>
+					<frontName>imageuploader</frontName>
+				</args>
+			</imageuploader>
+        </routers>
+    </admin>
+    <adminhtml>
+		<!--<menu>
+			<imageuploader module="imageuploader">
+				<title>Imageuploader</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="imageuploader">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>imageuploader/adminhtml_imageuploader</action>
+					</items>
+				</children>
+			</imageuploader>
+		</menu>-->
+		<menu>
+            <cms>
+                <children>
+                    <imageuploader module="imageuploader">
+                        <title>Slide Manager</title>
+                        <sort_order>18</sort_order>
+                        <action>imageuploader/adminhtml_imageuploader</action>
+                    </imageuploader>
+                 </children>
+            </cms>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Sarush_Imageuploader>
+							<title>Imageuploader Module</title>
+							<sort_order>10</sort_order>
+						</Sarush_Imageuploader>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<imageuploader>
+					<file>imageuploader.xml</file>
+				</imageuploader>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <imageuploader>
+                <class>Sarush_Imageuploader_Model</class>
+                <resourceModel>imageuploader_mysql4</resourceModel>
+            </imageuploader>
+            <imageuploader_mysql4>
+                <class>Sarush_Imageuploader_Model_Mysql4</class>
+                <entities>
+                    <imageuploader>
+                        <table>imageuploader</table>
+                    </imageuploader>
+                </entities>
+            </imageuploader_mysql4>
+        </models>
+        <resources>
+            <imageuploader_setup>
+                <setup>
+                    <module>Sarush_Imageuploader</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </imageuploader_setup>
+            <imageuploader_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </imageuploader_write>
+            <imageuploader_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </imageuploader_read>
+        </resources>
+        <blocks>
+            <imageuploader>
+                <class>Sarush_Imageuploader_Block</class>
+            </imageuploader>
+        </blocks>
+        <helpers>
+            <imageuploader>
+                <class>Sarush_Imageuploader_Helper</class>
+            </imageuploader>
+        </helpers>
+    </global>
+</config>
